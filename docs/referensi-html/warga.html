@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Warga – TATA</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Konfigurasi Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Bricolage Grotesque', 'sans-serif'],
+            sans: ['Source Sans 3', 'sans-serif'],
+          },
+          colors: {
+            toba: '#0E4A5C',
+            deep: '#0A3340',
+            ulos: '#A8281F',
+            mist: '#EEF3F3',
+            ink: '#17262B',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Utility Classes -->
+  <style type="text/tailwindcss">
+    .b {
+      @apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    }
+    .btn {
+      @apply inline-flex items-center justify-center rounded-lg bg-toba px-4 py-2.5 text-sm font-semibold text-white hover:bg-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-toba;
+    }
+    .btn2 {
+      @apply inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-ink hover:bg-mist;
+    }
+    .btnr {
+      @apply inline-flex items-center justify-center rounded-lg bg-ulos px-4 py-2.5 text-sm font-semibold text-white hover:bg-red-900;
+    }
+    .in {
+      @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm focus:border-toba focus:outline-none;
+    }
+    .card {
+      @apply rounded-xl border border-slate-200 bg-white p-5;
+    }
+    .lb {
+      @apply mb-1 block text-sm font-semibold;
+    }
+    .map {
+      background:
+        linear-gradient(#cfe3e6 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(90deg, #cfe3e6 1px, transparent 1px) 0 0 / 32px 32px,
+        #e4eff0;
+    }
+  </style>
+</head>
+
+<body class="bg-mist font-sans text-ink">
+  <div class="min-h-screen lg:flex">
+    
+    <!-- Sidebar Navigasi -->
+    <aside class="shrink-0 bg-deep p-5 text-white lg:min-h-screen lg:w-60">
+      <div class="font-display text-2xl font-bold">TATA</div>
+      <div class="mb-6 text-sm text-teal-200">Warga · Lumban Rau</div>
+
+      <nav class="space-y-1 text-sm">
+        <a href="#" class="block rounded-lg bg-white/15 px-3 py-2 font-semibold">
+          Laporan saya
+        </a>
+        <a href="#" class="block rounded-lg px-3 py-2 hover:bg-white/10">
+          Buat laporan
+        </a>
+        <a href="#" class="block rounded-lg px-3 py-2 hover:bg-white/10">
+          Akun
+        </a>
+      </nav>
+
+      <a href="auth.html" class="mt-8 block text-sm text-teal-200 hover:underline">
+        Keluar
+      </a>
+    </aside>
+
+    <!-- Konten Utama -->
+    <main class="min-w-0 flex-1 space-y-6 p-5 lg:p-8">
+      <h1 class="font-display text-2xl font-bold text-deep">
+        Halo, Rotua
+      </h1>
+
+      <div class="grid gap-6 xl:grid-cols-2">
+        
+        <!-- Kolom Kiri: Daftar & Riwayat Laporan Saya -->
+        <section class="card space-y-4">
+          <h2 class="font-display text-lg font-bold">Laporan saya</h2>
+
+          <!-- Item 1: Ditangani Desa -->
+          <div class="flex items-center justify-between rounded-lg border border-slate-200 p-3">
+            <div>
+              <b>TATA-0142</b>
+              <div class="text-sm text-slate-600">Jalan berlubang · 12 Nov 2026</div>
+            </div>
+            <span class="b bg-teal-100 text-teal-800">Ditangani Desa</span>
+          </div>
+
+          <!-- Item 2: Menunggu Validasi -->
+          <div class="flex items-center justify-between rounded-lg border border-slate-200 p-3">
+            <div>
+              <b>TATA-0139</b>
+              <div class="text-sm text-slate-600">Jembatan retak · 9 Nov 2026</div>
+            </div>
+            <span class="b bg-amber-100 text-amber-800">Menunggu Validasi Admin</span>
+          </div>
+
+          <!-- Item 3: Ditolak -->
+          <div class="rounded-lg border border-red-200 bg-red-50 p-3">
+            <div class="flex items-center justify-between">
+              <b>TATA-0131</b>
+              <span class="b bg-red-100 text-red-800">Ditolak Perangkat Desa</span>
+            </div>
+            <p class="mt-2 text-sm text-red-800">
+              <b>Alasan:</b> Lokasi sudah diperbaiki sebelum laporan masuk.
+            </p>
+          </div>
+
+          <!-- Timeline Riwayat Laporan -->
+          <h3 class="pt-2 font-semibold">Riwayat TATA-0142</h3>
+          <ol class="space-y-2 border-l-2 border-toba pl-4 text-sm">
+            <li>
+              <b>Ditangani Desa – Dalam Proses</b><br>
+              <span class="text-slate-500">13 Nov · Material sudah dipesan</span>
+            </li>
+            <li>
+              <b>Diteruskan ke Perangkat Desa</b><br>
+              <span class="text-slate-500">12 Nov</span>
+            </li>
+            <li>
+              <b>Menunggu Validasi Admin</b><br>
+              <span class="text-slate-500">12 Nov</span>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Kolom Kanan: Form Buat Laporan Baru -->
+        <section class="card space-y-4">
+          <h2 class="font-display text-lg font-bold">Buat laporan</h2>
+
+          <!-- Pilihan Desa & Jenis Kerusakan -->
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label class="lb">Desa</label>
+              <select class="in">
+                <option>Lumban Rau</option>
+              </select>
+            </div>
+            <div>
+              <label class="lb">Jenis kerusakan</label>
+              <select class="in">
+                <option>Jalan berlubang</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Deskripsi Kerusakan -->
+          <div>
+            <label class="lb">Deskripsi</label>
+            <textarea
+              class="in"
+              rows="3"
+              placeholder="Jelaskan lokasi dan tingkat kerusakan"
+            ></textarea>
+          </div>
+
+          <!-- Unggah Foto Kerusakan -->
+          <div>
+            <label class="lb">Foto kerusakan</label>
+            <div class="rounded-lg border-2 border-dashed border-slate-300 p-6 text-center text-sm text-slate-600">
+              Tarik foto ke sini atau pilih berkas
+            </div>
+
+            <!-- Daftar Pratinjau Berkas -->
+            <div class="mt-2 flex items-center gap-2 text-sm">
+              <div class="h-12 w-12 shrink-0 rounded bg-slate-300"></div>
+              <span>jalan-1.jpg</span>
+              <button type="button" class="ml-auto text-ulos hover:underline">Hapus</button>
+            </div>
+          </div>
+
+          <!-- Penentuan Titik Lokasi -->
+          <div>
+            <label class="lb">Titik lokasi</label>
+            <div class="map relative h-56 rounded-xl border border-slate-200">
+              <div class="absolute left-[55%] top-[40%] flex h-8 w-8 items-center justify-center rounded-full bg-ulos text-white shadow">
+                ●
+              </div>
+              <div class="absolute bottom-2 left-2 rounded bg-white px-2 py-1 text-xs">
+                Area peta Google Maps · 2.5833, 99.0771
+              </div>
+            </div>
+
+            <div class="mt-2 flex items-center justify-between text-sm">
+              <span>Lat 2.5833, Lng 99.0771</span>
+              <button type="button" class="btn2">Gunakan lokasi saya</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn w-full">Kirim laporan</button>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

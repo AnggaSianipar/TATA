@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Admin – TATA</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Konfigurasi Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Bricolage Grotesque', 'sans-serif'],
+            sans: ['Source Sans 3', 'sans-serif'],
+          },
+          colors: {
+            toba: '#0E4A5C',
+            deep: '#0A3340',
+            ulos: '#A8281F',
+            mist: '#EEF3F3',
+            ink: '#17262B',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Utility Classes -->
+  <style type="text/tailwindcss">
+    .b {
+      @apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    }
+    .btn {
+      @apply inline-flex items-center justify-center rounded-lg bg-toba px-4 py-2.5 text-sm font-semibold text-white hover:bg-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-toba;
+    }
+    .btn2 {
+      @apply inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-ink hover:bg-mist;
+    }
+    .btnr {
+      @apply inline-flex items-center justify-center rounded-lg bg-ulos px-4 py-2.5 text-sm font-semibold text-white hover:bg-red-900;
+    }
+    .in {
+      @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm focus:border-toba focus:outline-none;
+    }
+    .card {
+      @apply rounded-xl border border-slate-200 bg-white p-5;
+    }
+    .lb {
+      @apply mb-1 block text-sm font-semibold;
+    }
+    .map {
+      background: 
+        linear-gradient(#cfe3e6 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(90deg, #cfe3e6 1px, transparent 1px) 0 0 / 32px 32px,
+        #e4eff0;
+    }
+  </style>
+</head>
+
+<body class="bg-mist font-sans text-ink">
+  <div class="min-h-screen lg:flex">
+    
+    <!-- Sidebar Navigasi -->
+    <aside class="shrink-0 bg-deep p-5 text-white lg:min-h-screen lg:w-60">
+      <div class="font-display text-2xl font-bold">TATA</div>
+      <div class="mb-6 text-sm text-teal-200">Admin</div>
+
+      <nav class="space-y-1 text-sm">
+        <a href="#" class="block rounded-lg bg-white/15 px-3 py-2 font-semibold">
+          Laporan masuk
+        </a>
+        <a href="#" class="block rounded-lg px-3 py-2 hover:bg-white/10">
+          Pengguna
+        </a>
+      </nav>
+
+      <a href="auth.html" class="mt-8 block text-sm text-teal-200 hover:underline">
+        Keluar
+      </a>
+    </aside>
+
+    <!-- Konten Utama -->
+    <main class="min-w-0 flex-1 space-y-6 p-5 lg:p-8">
+      <h1 class="font-display text-2xl font-bold text-deep">
+        Laporan menunggu validasi
+      </h1>
+
+      <div class="grid gap-6 xl:grid-cols-5">
+        
+        <!-- Tabel Daftar Laporan -->
+        <section class="card overflow-x-auto xl:col-span-3">
+          <table class="w-full text-left text-sm">
+            <thead class="text-slate-500">
+              <tr>
+                <th class="py-2">Tiket</th>
+                <th>Pelapor</th>
+                <th>Desa</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="bg-mist">
+                <td class="py-3 font-semibold">TATA-0139</td>
+                <td>Rotua S.</td>
+                <td>Lumban Rau</td>
+                <td><span class="b bg-amber-100 text-amber-800">Menunggu</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 font-semibold">TATA-0140</td>
+                <td>Binsar P.</td>
+                <td>Sibuea</td>
+                <td><span class="b bg-amber-100 text-amber-800">Menunggu</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 font-semibold">TATA-0141</td>
+                <td>Maria T.</td>
+                <td>Tampahan</td>
+                <td><span class="b bg-amber-100 text-amber-800">Menunggu</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Detail & Aksi Validasi Laporan -->
+        <section class="card space-y-4 xl:col-span-2">
+          <h2 class="font-display text-lg font-bold">
+            TATA-0139 · Jembatan retak
+          </h2>
+
+          <!-- Preview Foto -->
+          <div class="grid grid-cols-2 gap-2">
+            <div class="h-28 rounded-lg bg-slate-300"></div>
+            <div class="h-28 rounded-lg bg-slate-400"></div>
+          </div>
+
+          <p class="text-sm text-slate-600">
+            Diunggah 9 Nov 2026 · 2 foto · koordinat 2.5811, 99.0702
+          </p>
+
+          <!-- Tombol Aksi Utama -->
+          <div class="flex gap-2">
+            <button type="button" class="btn flex-1">
+              Setujui dan teruskan ke desa
+            </button>
+            <button type="button" class="btnr">
+              Tolak
+            </button>
+          </div>
+
+          <!-- Form Konfirmasi Penolakan -->
+          <div class="space-y-3 rounded-lg border border-red-200 bg-red-50 p-4">
+            <b class="block text-red-800">Tolak laporan</b>
+            
+            <textarea 
+              class="in" 
+              rows="3" 
+              placeholder="Tulis alasan penolakan"
+            ></textarea>
+            
+            <label class="flex items-center gap-2 text-sm">
+              <input type="checkbox">
+              <span>Nonaktifkan akun pelapor</span>
+            </label>
+            
+            <button type="button" class="btnr w-full">
+              Konfirmasi penolakan
+            </button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>
